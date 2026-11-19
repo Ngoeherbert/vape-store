@@ -24,14 +24,14 @@ const iconProps = {
 export function SiteHeader({ cartCount = 0 }: { cartCount?: number }) {
   return (
     <header className="w-full">
-      <div className="bg-[#111] px-4 py-[7px] text-center text-[14px] leading-5 text-white">
+      <div className="bg-ink px-4 py-[7px] text-center text-[14px] leading-5 text-canvas">
         Free shipping on orders over $60 · Adults 18+ only
       </div>
-      <div className="border-b border-[#e5e5e5]">
+      <div className="border-b border-line">
         <div className="mx-auto flex h-[76px] max-w-[1280px] items-center px-6 md:px-16">
           <Link
             href="/"
-            className="mr-8 text-[20px] font-bold tracking-[0.2em] text-[#111]"
+            className="mr-8 text-[20px] font-bold tracking-[0.2em] text-ink wordmark"
           >
             STORE
           </Link>
@@ -40,13 +40,13 @@ export function SiteHeader({ cartCount = 0 }: { cartCount?: number }) {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-[16px] text-[#111] hover:underline underline-offset-4"
+                className="text-[16px] text-ink hover:underline underline-offset-4"
               >
                 {item.label}
               </Link>
             ))}
           </nav>
-          <div className="ml-auto flex items-center gap-7 text-[#111]">
+          <div className="ml-auto flex items-center gap-7 text-ink">
             <Link href="/search" aria-label="Search">
               <svg {...iconProps}>
                 <circle cx="11" cy="11" r="7.5" />

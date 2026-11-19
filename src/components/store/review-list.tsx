@@ -4,7 +4,7 @@ export function ReviewList({ reviews }: { reviews: Review[] }) {
   return (
     <div className="max-w-[740px] space-y-4">
       {reviews.map((r, i) => (
-        <article key={i} className="border border-[#e5e5e5] px-6 py-5">
+        <article key={i} className="border border-line px-6 py-5">
           <div className="flex items-center justify-between">
             <h3 className="font-medium">
               <span aria-label={`${r.rating} out of 5`}>
@@ -13,9 +13,9 @@ export function ReviewList({ reviews }: { reviews: Review[] }) {
               </span>{" "}
               {r.title}
             </h3>
-            <span className="text-sm text-[#555]">Verified buyer</span>
+            <span className="text-sm text-muted">Verified buyer</span>
           </div>
-          <p className="mt-3 text-[#555]">{r.body}</p>
+          <p className="mt-3 text-muted">{r.body}</p>
         </article>
       ))}
     </div>

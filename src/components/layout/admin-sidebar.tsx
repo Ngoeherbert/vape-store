@@ -67,18 +67,18 @@ export function AdminSidebar() {
     href === "/admin" ? pathname === href : pathname.startsWith(href);
 
   return (
-    <aside className="sticky top-0 h-screen w-[240px] shrink-0 overflow-y-auto border-r border-[#e5e5e5] bg-white px-7 pb-10 pt-8">
+    <aside className="sticky top-0 h-screen w-[240px] shrink-0 overflow-y-auto border-r border-line bg-canvas px-7 pb-10 pt-8">
       <Link href="/admin" className="flex items-baseline gap-2.5">
-        <span className="text-[17px] font-bold tracking-[0.2em] text-[#111]">
+        <span className="text-[17px] font-bold tracking-[0.2em] text-ink">
           STORE
         </span>
-        <span className="text-[13px] text-[#666]">Admin</span>
+        <span className="text-[13px] text-muted">Admin</span>
       </Link>
       <nav aria-label="Admin" className="mt-10 space-y-6">
         {groups.map((group, i) => (
           <div key={group.title ?? i}>
             {group.title && (
-              <p className="mb-1 text-[11px] uppercase tracking-[0.12em] text-[#666]">
+              <p className="mb-1 text-[11px] uppercase tracking-[0.12em] text-muted">
                 {group.title}
               </p>
             )}
@@ -88,7 +88,7 @@ export function AdminSidebar() {
                   <Link
                     href={item.href}
                     aria-current={isActive(item.href) ? "page" : undefined}
-                    className={`block py-[10px] text-[15px] text-[#111] hover:underline underline-offset-4 ${isActive(item.href) ? "font-semibold" : ""}`}
+                    className={`block py-[10px] text-[15px] text-ink hover:underline underline-offset-4 ${isActive(item.href) ? "font-semibold" : ""}`}
                   >
                     {item.label}
                   </Link>

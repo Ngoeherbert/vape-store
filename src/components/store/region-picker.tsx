@@ -7,7 +7,7 @@ import { btnPrimary } from "@/lib/utils";
 import { REGION_COOKIE, countries, isBlocked, setCookie } from "@/lib/region";
 
 const select =
-  "mt-2 h-[44px] w-full rounded-[3px] border border-[#ccc] bg-white px-3 text-[17px] text-[#111] focus-visible:outline-2 focus-visible:outline-[#111]";
+  "mt-2 h-[44px] w-full rounded-[3px] border border-[#ccc] bg-canvas px-3 text-[17px] text-ink focus-visible:outline-2 focus-visible:outline-ink";
 
 export function RegionPicker() {
   const router = useRouter();
@@ -27,16 +27,16 @@ export function RegionPicker() {
 
   return (
     <GateCard align="left">
-      <h1 className="text-[32px] font-semibold leading-tight text-[#111]">
+      <h1 className="text-[32px] font-semibold leading-tight text-ink">
         Where are you shipping to?
       </h1>
-      <p className="mt-3 text-[17px] leading-[1.5] text-[#555]">
+      <p className="mt-3 text-[17px] leading-[1.5] text-muted">
         Shipping rules and product availability depend on your location.
       </p>
       <form onSubmit={submit} className="mt-8">
         <label
           htmlFor={`${id}-country`}
-          className="block text-[15px] text-[#555]"
+          className="block text-[15px] text-muted"
         >
           Country
         </label>
@@ -59,7 +59,7 @@ export function RegionPicker() {
 
         <label
           htmlFor={`${id}-region`}
-          className="mt-6 block text-[15px] text-[#555]"
+          className="mt-6 block text-[15px] text-muted"
         >
           Region / state
         </label>
@@ -95,7 +95,7 @@ export function RegionPicker() {
           Continue
         </button>
       </form>
-      <p className="mt-5 text-center text-[14px] text-[#555]">
+      <p className="mt-5 text-center text-[14px] text-muted">
         You can change this later from the footer.
       </p>
     </GateCard>

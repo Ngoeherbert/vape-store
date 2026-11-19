@@ -19,9 +19,9 @@ export function AccountNav() {
   return (
     <nav
       aria-label="Account"
-      className="w-full overflow-hidden rounded-[3px] border border-[#e5e5e5] md:w-[240px]"
+      className="w-full overflow-hidden rounded-[3px] border border-line md:w-[240px]"
     >
-      <ul className="divide-y divide-[#e5e5e5]">
+      <ul className="divide-y divide-line">
         {items.map((item) => {
           const active =
             item.href === "/account"
@@ -32,7 +32,7 @@ export function AccountNav() {
               <Link
                 href={item.href}
                 aria-current={active ? "page" : undefined}
-                className={`block px-4 py-[13px] text-[17px] text-[#111] hover:bg-[#fafafa] ${active ? "bg-[#f5f5f5] font-medium" : ""}`}
+                className={`block px-4 py-[13px] text-[17px] text-ink hover:bg-footer ${active ? "bg-soft font-medium" : ""}`}
               >
                 {item.label}
               </Link>

@@ -16,10 +16,10 @@ export function AgeGate() {
 
   return (
     <GateCard>
-      <h1 className="text-[32px] font-semibold leading-tight text-[#111]">
+      <h1 className="text-[32px] font-semibold leading-tight text-ink">
         Are you 18 or older?
       </h1>
-      <p className="mx-auto mt-3 max-w-[360px] text-[17px] leading-[1.5] text-[#555]">
+      <p className="mx-auto mt-3 max-w-[360px] text-[17px] leading-[1.5] text-muted">
         This website sells nicotine products and is for adults only.
       </p>
       <div className="mt-8 flex flex-wrap justify-center gap-4">
@@ -34,7 +34,7 @@ export function AgeGate() {
           No, leave
         </a>
       </div>
-      <p className="mt-9 text-[14px] text-[#555]">
+      <p className="mt-9 text-[14px] text-muted">
         By entering you confirm you are of legal age where you live.
       </p>
     </GateCard>

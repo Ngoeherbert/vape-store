@@ -25,19 +25,17 @@ export default function CheckoutShippingPage() {
   const shipping = options.find((o) => o.id === method)!.price;
 
   return (
-    <>
+    <div className="page pt-14 pb-24">
       <CheckoutSteps current={3} />
       <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_400px]">
         <div>
-          <h1 className="text-5xl font-semibold tracking-tight">
-            Shipping method
-          </h1>
+          <h1 className="text-h1">Shipping method</h1>
           <ShippingOptions
             options={options}
             value={method}
             onChange={setMethod}
           />
-          <p className="mt-6 text-lg text-[#555]">
+          <p className="mt-6 text-lg text-muted">
             Adult signature required on delivery.
           </p>
           <div className="mt-12 flex items-center justify-between">
@@ -46,7 +44,7 @@ export default function CheckoutShippingPage() {
             </Link>
             <Link
               href="/checkout/payment"
-              className="bg-[#111] px-10 py-5 text-xl text-white"
+              className="bg-ink px-10 py-5 text-xl text-canvas"
             >
               Continue to payment
             </Link>
@@ -61,6 +59,6 @@ export default function CheckoutShippingPage() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }

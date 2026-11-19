@@ -1,23 +1,47 @@
 "use client";
+import Link from "next/link";
+import { btnOutline } from "@/lib/utils";
 
-export type PaymentMethod = { id: string; name: string; desc: string };
+export type PaymentMethod = {
+  id: string;
+  name: string;
+  desc: string;
+};
 
-export function PaymentMethods({ methods, value, onChange }: { methods: PaymentMethod[]; value: string; onChange: (id: string) => void }) {
+export function PaymentMethods({
+  methods,
+  value,
+  onChange,
+}: {
+  methods: PaymentMethod[];
+  value: string;
+  onChange: (id: string) => void;
+}) {
   return (
-    <fieldset className="mt-8 space-y-4">
-      <legend className="sr-only">Payment method</legend>
+    <div className="space-y-3">
       {methods.map((m) => (
-        <label
-          key={m.id}
-          className={`flex cursor-pointer items-start gap-4 px-8 py-7 ${m.id === value ? "border-2 border-[#111]" : "border border-[#d4d4d4]"}`}
-        >
-          <input type="radio" name="payment" value={m.id} checked={m.id === value} onChange={() => onChange(m.id)} className="mt-1.5 h-5 w-5" />
-          <span>
-            <span className="block text-xl">{m.name}</span>
-            <span className="mt-1 block text-lg text-[#555]">{m.desc}</span>
-          </span>
+        <label key={m.id} className="chip" onClick={() => onChange(m.id)}>
+          <input
+            type="radio"
+            name="payment"
+            value={m.id}
+            checked={value === m.id}
+            onChange={() => onChange(m.id)}
+            aria-hidden
+          />
+          {m.id === value ? "●" : "○"}
+          <div>
+            <p className="text-lg">{m.name}</p>
+            <p className="mt-1 text-muted">{m.desc}</p>
+          </div>
         </label>
       ))}
-    </fieldset>
+      <p className="mt-4 text-sm text-muted">
+        Not your method?{" "}
+        <Link href="/contact" className={btnOutline}>
+          Contact support
+        </Link>
+      </p>
+    </div>
   );
 }

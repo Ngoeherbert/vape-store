@@ -26,8 +26,8 @@ export default function CartPage() {
   const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
 
   return (
-    <>
-      <h1 className="text-5xl font-semibold tracking-tight">Your cart</h1>
+    <div className="page pt-14 pb-24">
+      <h1 className="text-h1">Your cart</h1>
       <div className="mt-14 grid items-start gap-12 lg:grid-cols-[1fr_400px]">
         <div>
           {items.map((i) => (
@@ -42,7 +42,7 @@ export default function CartPage() {
               onRemove={() => setItems((a) => a.filter((x) => x.id !== i.id))}
             />
           ))}
-          <div className="border-t border-[#e5e5e5] pt-8">
+          <div className="border-t border-line pt-8">
             <Link href="/products" className="text-xl underline">
               Continue shopping
             </Link>
@@ -50,7 +50,7 @@ export default function CartPage() {
         </div>
 
         <OrderSummary subtotal={subtotal} shipping="Calculated next">
-          <label className="mt-6 block text-[#555]">
+          <label className="mt-6 block text-muted">
             Discount code
             <div className="mt-2 flex gap-2">
               <input
@@ -59,7 +59,7 @@ export default function CartPage() {
               />
               <button
                 type="button"
-                className="border border-[#d4d4d4] px-7 text-lg text-[#111]"
+                className="border border-[#d4d4d4] px-7 text-lg text-ink"
               >
                 Apply
               </button>
@@ -67,12 +67,12 @@ export default function CartPage() {
           </label>
           <Link
             href="/checkout/info"
-            className="mt-8 block bg-[#111] py-5 text-center text-xl text-white"
+            className="mt-8 block bg-ink py-5 text-center text-xl text-canvas"
           >
             Checkout
           </Link>
         </OrderSummary>
       </div>
-    </>
+    </div>
   );
 }

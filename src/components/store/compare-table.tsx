@@ -29,45 +29,45 @@ export function CompareTable({
                 key={i.name}
                 className="px-0 pb-4 pr-8 align-bottom font-normal"
               >
-                <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-[#f1f1f1] text-sm text-[#555]">
+                <div className="relative flex aspect-[4/3] items-center justify-center overflow-hidden bg-soft text-sm text-muted">
                   {i.imageUrl ? (
                     <Image src={i.imageUrl} alt={i.name} fill className="object-cover" sizes="240px" />
                   ) : (
                     "Image"
                   )}
                 </div>
-                <div className="mt-6 font-medium">{i.name}</div>
+                <div className="mt-6 font-medium text-ink">{i.name}</div>
               </th>
             ))}
           </tr>
         </thead>
         <tbody>
-          <tr className="border-t border-[#e5e5e5]">
-            <th className="py-6 pl-6 font-normal text-[#555]">Price</th>
+          <tr className="border-t border-line">
+            <th className="py-6 pl-6 font-normal text-muted">Price</th>
             {items.map((i) => (
-              <td key={i.name} className="py-6">
+              <td key={i.name} className="py-6 text-ink">
                 {money(i.price)}
               </td>
             ))}
           </tr>
           {rows.map((r) => (
-            <tr key={r} className="border-t border-[#e5e5e5]">
-              <th className="py-6 pl-6 font-normal text-[#555]">{r}</th>
+            <tr key={r} className="border-t border-line">
+              <th className="py-6 pl-6 font-normal text-muted">{r}</th>
               {items.map((i) => (
-                <td key={i.name} className="py-6">
+                <td key={i.name} className="py-6 text-ink">
                   {i.specs[r]}
                 </td>
               ))}
             </tr>
           ))}
-          <tr className="border-y border-[#e5e5e5]">
+          <tr className="border-y border-line">
             <td />
             {items.map((i) => (
               <td key={i.name} className="py-6">
                 <button
                   type="button"
                   onClick={() => onAdd?.(i.name)}
-                  className="bg-[#111] px-7 py-4 font-medium text-white"
+                  className="btn-primary flex-1"
                 >
                   Add to cart
                 </button>

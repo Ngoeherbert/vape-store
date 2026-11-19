@@ -13,7 +13,7 @@ export function VariantPicker({
 }) {
   return (
     <fieldset className="mt-8">
-      <legend className="mb-2 text-sm text-[#555]">{label}</legend>
+      <legend className="mb-2 text-sm text-muted">{label}</legend>
       <div className="flex flex-wrap gap-3">
         {options.map((o) => (
           <button
@@ -21,7 +21,7 @@ export function VariantPicker({
             type="button"
             aria-pressed={o === value}
             onClick={() => onChange(o)}
-            className={`border px-4 py-2.5 text-[15px] ${o === value ? "border-[#111] bg-[#111] text-white" : "border-[#d4d4d4] bg-white"}`}
+            className={`border px-4 py-2.5 text-[15px] ${o === value ? "border-ink bg-ink text-canvas" : "border-[#d4d4d4] bg-canvas"}`}
           >
             {o}
           </button>

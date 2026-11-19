@@ -9,13 +9,11 @@ export default function CheckoutReviewPage() {
   const [agreed, setAgreed] = useState(false);
 
   return (
-    <>
+    <div className="page pt-14 pb-24">
       <CheckoutSteps current={5} />
       <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_400px]">
         <div>
-          <h1 className="text-5xl font-semibold tracking-tight">
-            Review your order
-          </h1>
+          <h1 className="text-h1">Review your order</h1>
           <div className="mt-8 space-y-5">
             <ReviewCard
               title="Contact"
@@ -66,7 +64,7 @@ export default function CheckoutReviewPage() {
               onClick={(e) => {
                 if (!agreed) e.preventDefault();
               }}
-              className={`bg-[#111] px-10 py-5 text-xl text-white ${agreed ? "" : "opacity-40"}`}
+              className={`bg-ink px-10 py-5 text-xl text-canvas ${agreed ? "" : "opacity-40"}`}
             >
               Place order and pay
             </Link>
@@ -86,6 +84,6 @@ export default function CheckoutReviewPage() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }

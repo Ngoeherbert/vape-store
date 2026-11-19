@@ -57,7 +57,7 @@ function Chip({
       onClick={onClick}
       aria-pressed={active}
       className={`border px-4 py-2.5 text-base ${
-        active ? "border-ink bg-ink text-white" : "border-line hover:border-ink"
+        active ? "border-ink bg-ink text-canvas" : "border-line hover:border-ink"
       }`}
     >
       {label}
@@ -171,7 +171,7 @@ export function ProductFilters() {
       <button
         type="button"
         onClick={clear}
-        className="mt-6 h-14 w-full border border-line text-lg hover:border-ink"
+        className="mt-6 h-14 w-full border border-line text-lg hover:border-ink btn-secondary"
       >
         Clear filters
       </button>

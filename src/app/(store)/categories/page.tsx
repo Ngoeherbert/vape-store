@@ -6,7 +6,7 @@ import { categories, products } from "@/lib/mock-data";
 
 export default function CategoriesPage() {
   return (
-    <div className="page">
+    <div className="page pt-14 pb-24">
       <PageHeader
         title="Shop by category"
         crumbs={[{ label: "Home", href: "/" }, { label: "Shop" }]}
@@ -28,9 +28,7 @@ export default function CategoriesPage() {
         ))}
       </div>
 
-      <h2 className="mt-24 text-3xl font-semibold tracking-tight">
-        Popular right now
-      </h2>
+      <h2 className="mt-24 text-h2">Popular right now</h2>
       <div className="mt-12">
         <ProductGrid products={products.slice(0, 4)} />
       </div>

@@ -19,7 +19,7 @@ export default async function BrandPage({
   if (!brand) notFound();
 
   return (
-    <div className="page pt-14">
+    <div className="page pt-14 pb-24">
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },
@@ -35,9 +35,7 @@ export default async function BrandPage({
           <p className="text-sm uppercase tracking-widest text-muted">
             Brand detail
           </p>
-          <h1 className="mt-3 text-5xl font-semibold tracking-tight">
-            {brand.name}
-          </h1>
+          <h1 className="mt-3 text-h2">{brand.name}</h1>
           <p className="mt-5 max-w-2xl text-xl leading-relaxed text-muted">
             {brand.description} {brand.productCount} products available.
           </p>

@@ -7,14 +7,14 @@ const sections = [
 
 export default function PrivacyPage() {
   return (
-    <div className="max-w-[760px]">
-      <nav className="text-lg text-[#555]">Home / Privacy policy</nav>
-      <h1 className="mt-10 text-5xl font-semibold tracking-tight">Privacy policy</h1>
-      <p className="mt-10 text-lg text-[#555]">Last updated [DATE]</p>
+    <div className="page pt-14 pb-24">
+      <nav className="text-lg text-muted">Home / Privacy policy</nav>
+      <h1 className="mt-10 text-h1">Privacy policy</h1>
+      <p className="mt-10 text-lg text-muted">Last updated [DATE]</p>
       {sections.map((s) => (
         <section key={s.h} className="mt-10">
           <h2 className="text-2xl font-semibold">{s.h}</h2>
-          <p className="mt-2 text-xl leading-8 text-[#555]">{s.p}</p>
+          <p className="mt-2 text-xl leading-8 text-muted">{s.p}</p>
         </section>
       ))}
     </div>

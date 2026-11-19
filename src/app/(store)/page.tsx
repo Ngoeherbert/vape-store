@@ -8,8 +8,8 @@ const homeCategories = categories.slice(0, 4);
 function SectionHeader({ title, href }: { title: string; href: string }) {
   return (
     <div className="flex items-end justify-between">
-      <h2 className="text-4xl font-semibold tracking-tight">{title}</h2>
-      <Link href={href} className="underline underline-offset-4">
+      <h2 className="text-h2">{title}</h2>
+      <Link href={href} className="link-underline">
         View all
       </Link>
     </div>
@@ -19,13 +19,13 @@ function SectionHeader({ title, href }: { title: string; href: string }) {
 export default function HomePage() {
   return (
     <>
-      <section className="bg-[#f5f5f5]">
+      <section className="bg-hero">
         <div className="page grid items-center gap-12 py-24 lg:grid-cols-2">
           <div>
             <p className="text-sm uppercase tracking-widest text-muted">
               New arrivals
             </p>
-            <h1 className="mt-6 text-7xl font-semibold leading-[1.05] tracking-tight">
+            <h1 className="mt-6 text-display leading-[1.05] tracking-tight">
               Simple vaping,
               <br />
               done properly.
@@ -37,13 +37,13 @@ export default function HomePage() {
             <div className="mt-10 flex gap-4">
               <Link
                 href="/products"
-                className="bg-ink px-8 py-4 text-lg text-white"
+                className="bg-ink px-8 py-4 text-lg text-canvas"
               >
                 Shop all
               </Link>
               <Link
                 href="/deals"
-                className="border border-line bg-white px-8 py-4 text-lg"
+                className="border border-line bg-canvas px-8 py-4 text-lg"
               >
                 View deals
               </Link>
@@ -81,16 +81,16 @@ export default function HomePage() {
       </section>
 
       <section className="page pt-24">
-        <div className="flex items-center justify-between bg-ink px-14 py-16 text-white">
+        <div className="flex items-center justify-between bg-ink px-14 py-16 text-canvas">
           <div>
-            <p className="text-sm uppercase tracking-widest text-white/60">
+            <p className="text-sm uppercase tracking-widest text-canvas/60">
               Promotion
             </p>
             <p className="mt-3 text-4xl font-semibold">
               Save 15% on your first order
             </p>
           </div>
-          <Link href="/bundles" className="bg-white px-8 py-4 text-lg text-ink">
+          <Link href="/bundles" className="bg-canvas px-8 py-4 text-lg text-ink">
             Shop bundles
           </Link>
         </div>

@@ -21,19 +21,17 @@ export default function CheckoutPaymentPage() {
   const [method, setMethod] = useState("crypto");
 
   return (
-    <>
+    <div className="page pt-14 pb-24">
       <CheckoutSteps current={4} />
       <div className="mt-14 grid gap-12 lg:grid-cols-[1fr_400px]">
         <div>
-          <h1 className="text-5xl font-semibold tracking-tight">
-            Payment method
-          </h1>
+          <h1 className="text-h1">Payment method</h1>
           <PaymentMethods
             methods={methods}
             value={method}
             onChange={setMethod}
           />
-          <p className="mt-6 text-lg text-[#555]">
+          <p className="mt-6 text-lg text-muted">
             You will choose your coin on the next step after reviewing your
             order.
           </p>
@@ -43,7 +41,7 @@ export default function CheckoutPaymentPage() {
             </Link>
             <Link
               href="/checkout/review"
-              className="bg-[#111] px-10 py-5 text-xl text-white"
+              className="bg-ink px-10 py-5 text-xl text-canvas"
             >
               Review order
             </Link>
@@ -58,6 +56,6 @@ export default function CheckoutPaymentPage() {
           />
         </div>
       </div>
-    </>
+    </div>
   );
 }

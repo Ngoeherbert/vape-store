@@ -19,7 +19,7 @@ export default async function CategoryPage({
   if (!category) notFound();
 
   return (
-    <div className="page pt-14">
+    <div className="page pt-14 pb-24">
       <Breadcrumbs
         items={[
           { label: "Home", href: "/" },
@@ -27,10 +27,8 @@ export default async function CategoryPage({
           { label: category.name },
         ]}
       />
-      <h1 className="mt-6 text-5xl font-semibold tracking-tight">
-        {category.name}
-      </h1>
-      <p className="mt-3 text-lg text-[#555]">{category.count} products</p>
+      <h1 className="mt-6 text-h1">{category.name}</h1>
+      <p className="mt-3 text-lg text-muted">{category.count} products</p>
       <div className="mt-12">
         <ProductGrid products={products} />
       </div>

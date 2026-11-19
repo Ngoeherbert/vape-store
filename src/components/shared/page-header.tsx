@@ -34,7 +34,7 @@ export function PageHeader({
     <div className="pt-14">
       {crumbs && <Breadcrumbs items={crumbs} />}
       <div className="mt-6 flex items-end justify-between gap-6">
-        <h1 className="text-5xl font-semibold tracking-tight">{title}</h1>
+        <h1 className="text-h1">{title}</h1>
         {children}
       </div>
     </div>

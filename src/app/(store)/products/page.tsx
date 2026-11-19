@@ -14,14 +14,14 @@ export default async function ProductsPage({
   const current = Math.max(1, Number(page) || 1);
 
   return (
-    <div className="page pt-14">
-      <nav className="text-lg text-[#555]">Home / All products</nav>
+    <div className="page pt-14 pb-24">
+      <nav className="text-lg text-muted">Home / All products</nav>
       <div className="mt-10 flex items-end justify-between gap-4">
-        <h1 className="text-5xl font-semibold tracking-tight">All products</h1>
-        <p className="text-lg text-[#555]">{products.length} products</p>
+        <h1 className="text-h1">All products</h1>
+        <p className="text-lg text-muted">{products.length} products</p>
       </div>
 
-      <div className="mt-12 grid gap-12 lg:grid-cols-[260px_1fr]">
+      <div className="mt-12 layout-sidebar lg:layout-summary">
         <ProductFilters />
         <div>
           <ProductGrid products={products} />

@@ -10,7 +10,7 @@ export function QuantityInput({
   min?: number;
 }) {
   return (
-    <div className="inline-flex h-14 items-center border border-[#d4d4d4]">
+    <div className="inline-flex h-14 items-center border border-line">
       <button
         type="button"
         aria-label="Decrease"

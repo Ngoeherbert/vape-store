@@ -7,7 +7,7 @@ export default function BrandsPage() {
   const featured = brands[0];
 
   return (
-    <div className="page">
+    <div className="page pt-14 pb-24">
       <PageHeader
         title="Brands"
         crumbs={[{ label: "Home", href: "/" }, { label: "Brands" }]}
@@ -35,9 +35,7 @@ export default function BrandsPage() {
           <p className="text-sm uppercase tracking-widest text-muted">
             Brand detail
           </p>
-          <h2 className="mt-3 text-5xl font-semibold tracking-tight">
-            {featured.name}
-          </h2>
+          <h2 className="mt-3 text-h2">{featured.name}</h2>
           <p className="mt-5 max-w-2xl text-xl leading-relaxed text-muted">
             {featured.description} {featured.productCount} products available.
           </p>

@@ -1,106 +1,128 @@
 "use client";
-import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useState } from "react";
+import { btnPrimary } from "@/lib/utils";
 
-const input = "mt-2 h-[68px] w-full border border-[#d4d4d4] px-5 text-lg";
-const label = "block text-[#555]";
+export type AddressFormValue = {
+  fullName: string;
+  street: string;
+  city: string;
+  postcode: string;
+  country: string;
+};
 
 export function AddressForm() {
-  const router = useRouter();
+  const [form, setForm] = useState<AddressFormValue>({
+    fullName: "",
+    street: "",
+    city: "",
+    postcode: "",
+    country: "GB",
+  });
+  const [error, setError] = useState("");
+
+  const countries = [
+    { code: "GB", label: "United Kingdom" },
+    { code: "IE", label: "Ireland" },
+    { code: "US", label: "United States" },
+    { code: "CA", label: "Canada" },
+  ];
+
+  const regions = [
+    { code: "ENG", label: "England" },
+    { code: "SCT", label: "Scotland" },
+    { code: "WLS", label: "Wales" },
+    { code: "NIR", label: "Northern Ireland" },
+  ];
+
+  function submit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!form.fullName || !form.street || !form.city || !form.postcode) {
+      return setError("Please fill in all required fields.");
+    }
+    setError("");
+  }
+
   return (
-    <form
-      className="mt-8"
-      onSubmit={(e) => {
-        e.preventDefault();
-        router.push("/checkout/shipping");
-      }}
-    >
-      <div className="grid gap-6 sm:grid-cols-2">
-        <label className={label}>
-          First name
-          <input
-            name="firstName"
-            required
-            autoComplete="given-name"
-            className={input}
-          />
-        </label>
-        <label className={label}>
-          Last name
-          <input
-            name="lastName"
-            required
-            autoComplete="family-name"
-            className={input}
-          />
-        </label>
-      </div>
-      <label className={`${label} mt-6`}>
-        Address
+    <form onSubmit={submit} className="space-y-5">
+      {error && (
+        <p className="mt-2 text-sm text-[#b42318]" role="alert">
+          {error}
+        </p>
+      )}
+      <label className="field">
+        <span className="field-label">Full name</span>
         <input
-          name="address"
+          name="fullName"
+          autoComplete="name"
           required
-          autoComplete="address-line1"
-          className={input}
+          value={form.fullName}
+          onChange={(e) => setForm({ ...form, fullName: e.target.value })}
+          className="input"
         />
       </label>
-      <label className={`${label} mt-6`}>
-        Apartment, suite (optional)
-        <input name="address2" autoComplete="address-line2" className={input} />
+      <label className="field">
+        <span className="field-label">Street address</span>
+        <input
+          name="street"
+          autoComplete="street-address"
+          required
+          value={form.street}
+          onChange={(e) => setForm({ ...form, street: e.target.value })}
+          className="input"
+        />
       </label>
-      <div className="mt-6 grid gap-6 sm:grid-cols-2">
-        <label className={label}>
-          City
+      <div className="grid gap-4 md:grid-cols-2">
+        <label className="field">
+          <span className="field-label">City</span>
           <input
             name="city"
-            required
             autoComplete="address-level2"
-            className={input}
+            required
+            value={form.city}
+            onChange={(e) => setForm({ ...form, city: e.target.value })}
+            className="input"
           />
         </label>
-        <label className={label}>
-          Postcode
+        <label className="field">
+          <span className="field-label">Postcode</span>
           <input
             name="postcode"
-            required
             autoComplete="postal-code"
-            className={input}
+            required
+            value={form.postcode}
+            onChange={(e) => setForm({ ...form, postcode: e.target.value })}
+            className="input"
           />
         </label>
       </div>
-      <label className={`${label} mt-6`}>
-        Country
+      <label className="field">
+        <span className="field-label">Country</span>
         <select
           name="country"
-          defaultValue="United Kingdom"
-          className={`${input} bg-white`}
+          value={form.country}
+          onChange={(e) => setForm({ ...form, country: e.target.value })}
+          className="select"
         >
-          <option>United Kingdom</option>
-          <option>Ireland</option>
-          <option>Germany</option>
-          <option>France</option>
+          {countries.map((c) => (
+            <option key={c.code} value={c.code}>
+              {c.label}
+            </option>
+          ))}
         </select>
       </label>
-      <label className="mt-6 flex items-center gap-3 text-xl">
-        <input
-          type="checkbox"
-          name="billingSame"
-          defaultChecked
-          className="h-5 w-5"
-        />{" "}
-        Billing address is the same
+      <label className="field">
+        <span className="field-label">Region</span>
+        <select name="region" className="select">
+          {regions.map((r) => (
+            <option key={r.code} value={r.code}>
+              {r.label}
+            </option>
+          ))}
+        </select>
       </label>
-      <div className="mt-12 flex items-center justify-between">
-        <Link href="/checkout/info" className="text-xl underline">
-          Back
-        </Link>
-        <button
-          type="submit"
-          className="bg-[#111] px-10 py-5 text-xl text-white"
-        >
-          Continue to shipping
-        </button>
-      </div>
+      <button type="submit" className={btnPrimary}>
+        Save and continue
+      </button>
     </form>
   );
 }

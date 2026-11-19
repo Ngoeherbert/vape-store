@@ -1,75 +1,81 @@
 "use client";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
 import { useState } from "react";
+import { btnPrimary } from "@/lib/utils";
 
-const input =
-  "mt-2 h-[68px] w-full border border-[#d4d4d4] px-5 text-lg placeholder:text-[#999]";
+export type CustomerFormValue = {
+  email: string;
+  phone: string;
+  marketing: boolean;
+};
 
 export function CustomerForm() {
-  const router = useRouter();
-  const [ageOk, setAgeOk] = useState(true);
+  const [form, setForm] = useState<CustomerFormValue>({
+    email: "",
+    phone: "",
+    marketing: false,
+  });
+  const [error, setError] = useState("");
+
+  function submit(e: React.FormEvent) {
+    e.preventDefault();
+    if (!form.email || !form.phone) {
+      return setError("Please enter your email and phone.");
+    }
+    setError("");
+  }
 
   return (
-    <form
-      className="mt-8"
-      onSubmit={(e) => {
-        e.preventDefault();
-        if (ageOk) router.push("/checkout/address");
-      }}
-    >
-      <div className="flex items-center justify-between border border-[#e5e5e5] px-10 py-9">
-        <span className="text-xl">Already have an account?</span>
-        <Link
-          href="/login"
-          className="border border-[#d4d4d4] px-6 py-4 text-lg"
-        >
-          Log in
-        </Link>
-      </div>
-
-      <label className="mt-10 block text-[#555]">
-        Email
+    <form onSubmit={submit} className="space-y-5">
+      {error && (
+        <p className="mt-2 text-sm text-[#b42318]" role="alert">
+          {error}
+        </p>
+      )}
+      <label className="field">
+        <span className="field-label">Email</span>
         <input
-          type="email"
           name="email"
+          type="email"
+          autoComplete="email"
           required
-          placeholder="you@example.com"
-          className={input}
+          value={form.email}
+          onChange={(e) => setForm({ ...form, email: e.target.value })}
+          className="input"
         />
       </label>
-      <label className="mt-8 block text-[#555]">
-        Phone
-        <input type="tel" name="phone" className={input} />
-      </label>
-
-      <label className="mt-8 flex items-center gap-3 text-xl">
-        <input type="checkbox" name="marketing" className="h-5 w-5" /> Email me
-        news and offers
-      </label>
-      <label className="mt-5 flex items-center gap-3 text-xl">
+      <label className="field">
+        <span className="field-label">Phone</span>
         <input
-          type="checkbox"
-          name="age"
-          checked={ageOk}
-          onChange={(e) => setAgeOk(e.target.checked)}
-          className="h-5 w-5"
-        />{" "}
-        I confirm I am 18 or older
+          name="phone"
+          type="tel"
+          autoComplete="tel"
+          required
+          value={form.phone}
+          onChange={(e) => setForm({ ...form, phone: e.target.value })}
+          className="input"
+        />
       </label>
-
-      <div className="mt-12 flex items-center justify-between">
-        <Link href="/cart" className="text-xl underline">
-          Back to cart
+      <label className="check">
+        <input
+          name="marketing"
+          type="checkbox"
+          checked={form.marketing}
+          onChange={(e) =>
+            setForm({ ...form, marketing: e.target.checked })
+          }
+        />
+        <span>Email me news and offers</span>
+      </label>
+      <button type="submit" className={btnPrimary}>
+        Save and continue
+      </button>
+      <p className="mt-4 text-sm text-muted">
+        Already have an account?{" "}
+        <Link href="/account" className="link-underline">
+          Sign in
         </Link>
-        <button
-          type="submit"
-          disabled={!ageOk}
-          className="bg-[#111] px-10 py-5 text-xl text-white disabled:opacity-40"
-        >
-          Continue to address
-        </button>
-      </div>
+      </p>
     </form>
   );
 }

@@ -42,7 +42,7 @@ export function SearchBox({ initialQuery = "" }: { initialQuery?: string }) {
         className="mt-3 h-16 w-full border border-line px-5 text-2xl outline-none focus:border-ink"
       />
       {open && (
-        <div className="absolute left-0 right-0 z-10 mt-3 border border-line bg-white px-6 py-6 shadow-lg">
+        <div className="absolute left-0 right-0 z-10 mt-3 border border-line bg-canvas px-6 py-6 shadow-lg">
           <p className="text-sm uppercase tracking-widest text-muted">
             Suggestions
           </p>

@@ -12,15 +12,13 @@ export default async function SearchPage({
   const { q = "" } = await searchParams;
 
   return (
-    <div className="page pt-14">
+    <div className="page pt-14 pb-24">
       <SearchBox key={q} initialQuery={q} />
 
       {q && (
         <section className="mt-24">
           <div className="flex items-baseline justify-between">
-            <h1 className="text-4xl font-semibold tracking-tight">
-              Results for “{q}”
-            </h1>
+            <h1 className="text-h1">Results for “{q}”</h1>
             <p className="text-lg text-muted">36 products</p>
           </div>
           <div className="mt-12">
